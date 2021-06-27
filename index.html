@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  </head>
+  <body>
+    <div role="search">
+
+      <label for="tunetype">Search</label>
+      <select id="tunetype" name="type">
+        <option value="">all tunes</option>
+        <option value="jig">jigs</option>
+        <option value="reel">reels</option>
+        <option value="slip jig">slip jigs</option>
+        <option value="hornpipe">hornpipes</option>
+        <option value="polka">polkas</option>
+        <option value="slide">slides</option>
+        <option value="waltz">waltzes</option>
+        <option value="barndance">barndances</option>
+        <option value="strathspey">strathspeys</option>
+        <option value="three-two">three-twos</option>
+        <option value="mazurka">mazurkas</option>
+        <option value="march">marches</option>
+      </select>
+      
+      <label for="tunemode">in</label>
+      <select id="tunemode" name="mode">
+        <option value="">all keys</option>
+        <option value="Amajor">Amajor</option>
+        <option value="Aminor">Aminor</option>
+        <option value="Adorian">Adorian</option>
+        <option value="Amixolydian">Amixolydian</option>
+        <option value="Bminor">Bminor</option>
+        <option value="Cmajor">Cmajor</option>
+        <option value="Dmajor">Dmajor</option>
+        <option value="Dminor">Dminor</option>
+        <option value="Eminor">Eminor</option>
+        <option value="Fmajor">Fmajor</option>
+        <option value="Gmajor">Gmajor</option>
+        <option value="Dmixolydian">Dmixolydian</option>
+        <option value="Bmixolydian">Bmixolydian</option>
+        <option value="Edorian">Edorian</option>
+        <option value="Gdorian">Gdorian</option>
+        <option value="Gminor">Gminor</option>
+        <option value="Ddorian">Ddorian</option>
+        <option value="Cdorian">Cdorian</option>
+        <option value="Fdorian">Fdorian</option>
+        <option value="Gmixolydian">Gmixolydian</option>
+        <option value="Emajor">Emajor</option>
+        <option value="Bdorian">Bdorian</option>
+        <option value="Emixolydian">Emixolydian</option>
+      </select>
+      
+      <label for="tunename">for</label>
+      <input id="tunename" type="search" inputmode="search" name="q" placeholder="e.g. The Wise Maid or EAA AGA" autocomplete="off" list="suggestions" data-suggestions="/tunes/searchoptions">
+      <button id="search" type="submit">search</button>
+      <datalist id="suggestions"></datalist>
+    </div><!-- /@search -->
+
+
+    <!-- <label for="name"></label>
+      <input type="text" name="name" id="name" placeholder="Name" required/>
+      <label for="name"></label>
+      <div class="btn-block">
+        <button id="submit_button" type="submit" href="/">Submit</button>
+      </div> -->
+
+    <p id="ok"></p>
+
+    <p id="code"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+  </body>
+</html>
+ 
+
