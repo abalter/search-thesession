@@ -8,7 +8,7 @@
 
       <label for="tunetype">Search</label>
       <select id="tunetype" name="type">
-        <option value="">all tunes</option>
+        <option value="*">all tunes</option>
         <option value="jig">jigs</option>
         <option value="reel">reels</option>
         <option value="slip jig">slip jigs</option>
@@ -25,7 +25,7 @@
       
       <label for="tunemode">in</label>
       <select id="tunemode" name="mode">
-        <option value="">all keys</option>
+        <option value="*">all keys</option>
         <option value="Amajor">Amajor</option>
         <option value="Aminor">Aminor</option>
         <option value="Adorian">Adorian</option>
@@ -41,7 +41,7 @@
         <option value="Bmixolydian">Bmixolydian</option>
         <option value="Edorian">Edorian</option>
         <option value="Gdorian">Gdorian</option>
-        <option value="Gminor">Gminor</option>
+        <option value="Gminor">Gmffnor</option>
         <option value="Ddorian">Ddorian</option>
         <option value="Cdorian">Cdorian</option>
         <option value="Fdorian">Fdorian</option>
@@ -51,7 +51,7 @@
         <option value="Emixolydian">Emixolydian</option>
       </select>
       
-      <label for="tunename">for</label>
+      <label id="for-tunename" for="tunename">for</label>
       <input id="tunename" type="search" inputmode="search" name="q" placeholder="e.g. The Wise Maid or EAA AGA" autocomplete="off" list="suggestions" data-suggestions="/tunes/searchoptions">
       <button id="search" type="submit">search</button>
       <datalist id="suggestions"></datalist>
@@ -69,9 +69,8 @@
 
     <p id="code"></p>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
-    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
   </body>
 </html>
  

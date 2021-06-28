@@ -1,91 +1,42 @@
-var global_idx;
-var reverse_idx;
+console.log("in script.js")
 
-function indexTuneList(tune_list, id_field, search_term)
+$('#search').on('click', function()
 {
-	var id_field = "tune_id";
-  var search_term = "name"
-  
-  var idx = lunr(function ()
-    {
-      this.ref('tune_id');
-      this.field('name');
+  var tune_name = $('#tunename').val();
+  var tune_key = $('#tunemode').val();
+  var tune_type = $('#tunetype').val();
 
-  /*     for (field in tune_fields)
-      {
-        this.field(field)
-      } */
+  console.log("name:", tune_name, "mode:", tune_mode, "type:", tune_type);
 
-      tune_list.forEach(function (doc) 
-        {
-          this.add(doc)
-        }, 
-        this
-      )
-    });
-    
-	return idx;
-
-}
-
-function getReverseIndex(records)
-{
-  var idx = {};
-  records.forEach(function(record)
+  search_results.forEach(function(result)
   {
-    var UID = record.tune_id;
-    idx[UID] = record;
-  });
+    // console.log("result", result);
+    var ref = result.ref;
+    // console.log("ref:", ref);
 
-  return idx;
-}
- 
- 
- $(document).ready(function()
-{
-  var url = 'https://raw.githubusercontent.com/adactio/TheSession-data/main/json/tunes.json';
-
-  var reverse_idx;
-
-  $.get(
-    url, 
-    function(data) 
-    { 
-        $('#code').text(data);
-        $('#ok').text("ok");
-        let tune_list = JSON.parse(data);
-        
-        global_idx = indexTuneList(tune_list);
-        reverse_idx = getReverseIndex(tune_list);
-        // console.log(global_idx);
-        
-    }, 
-    'text'
-  );
-
-  $('#search').on('click', function()
-  {
-    var tune_name = $('#tunename').val();
-    // console.log("tune name:", tune_name);
-
-    var search_results = global_idx.search(tune_name);
-    // console.log("results:", search_results);
-
-    search_results.forEach(function(result)
-    {
-      // console.log("result", result);
-      var ref = result.ref;
-      // console.log("ref:", ref);
-
-      var record = reverse_idx[ref];
-      console.log("name", record.name, "type:", record.type, "mode:", record.mode);
-    });
-
+    var record = reverse_idx[ref];
+    console.log("name", record.name, "type:", record.type, "mode:", record.mode);
   });
 
 });
- 
 
+
+ 
+  // $.get(
+  //   url, 
+  //   function(data) 
+  //   { 
+  //       $('#code').text(data);
+  //       $('#ok').text("ok");
+  //       let tune_list = JSON.parse(data);
+        
+  //       global_idx = indexTuneList(tune_list);
+  //       reverse_idx = getReverseIndex(tune_list);
+  //       // console.log(global_idx);
+        
+  //   }, 
+  //   'text'
+  // );
 
 var tune_fields = 
 [
