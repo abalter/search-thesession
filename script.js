@@ -3,25 +3,21 @@ console.log("in script.js")
 $('#search').on('click', function()
 {
   var tune_name = $('#tunename').val();
-  var tune_key = $('#tunemode').val();
+  var tune_mode = $('#tunemode').val();
   var tune_type = $('#tunetype').val();
 
   console.log("name:", tune_name, "mode:", tune_mode, "type:", tune_type);
 
-  search_results.forEach(function(result)
-  {
-    // console.log("result", result);
-    var ref = result.ref;
-    // console.log("ref:", ref);
+  sql = `select+*+from+tunes+where+name+like+%22%25${tune_name}%25%22+and+mode+like+%22%25${tune_mode}%25%22+and+type+like+%22%25${tune_type}%25%22`
+  sql = `select+*+from+tunes+where+name+like+"%${tune_name}%"+and+mode+like+"${tune_mode}"+and+type+like+"${tune_type}"`
+  
+  encoded_sql = encodeURI(sql);
+  console.log("raw sql", sql);
+  console.log("encoded sql: ", encoded_sql);
 
-    var record = reverse_idx[ref];
-    console.log("name", record.name, "type:", record.type, "mode:", record.mode);
-  });
+  query_url = "https://thesession.vercel.app/thesession.json?sql=" + encoded_sql
+  console.log(query_url);
 
-});
-
-
- 
   // $.get(
   //   url, 
   //   function(data) 
@@ -37,6 +33,7 @@ $('#search').on('click', function()
   //   }, 
   //   'text'
   // );
+});
 
 var tune_fields = 
 [
