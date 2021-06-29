@@ -18,21 +18,20 @@ $('#search').on('click', function()
   query_url = "https://thesession.vercel.app/thesession.json?sql=" + encoded_sql
   console.log(query_url);
 
-  // $.get(
-  //   url, 
-  //   function(data) 
-  //   { 
-  //       $('#code').text(data);
-  //       $('#ok').text("ok");
-  //       let tune_list = JSON.parse(data);
+  $.get(
+    query_url, 
+    function(data) 
+    { 
+      let all_results = JSON.parse(data);
+      let tune_list = all_results['rows'];
+      let results_text = JSON.stringify(tune_list, null, 2);
+      console.log(results_text);
+      $('#abc').text(results_text);
+      $('#ok').text("ok");
         
-  //       global_idx = indexTuneList(tune_list);
-  //       reverse_idx = getReverseIndex(tune_list);
-  //       // console.log(global_idx);
-        
-  //   }, 
-  //   'text'
-  // );
+    }, 
+    'text'
+  );
 });
 
 var tune_fields = 
